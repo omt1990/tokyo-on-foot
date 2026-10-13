@@ -11,6 +11,6 @@
 - Vercelアカウント: omata.yusuke1990@gmail.com / team slug `omt1990`（push で自動デプロイ。CLI 直デプロイ禁止）
 - Supabase: 不要（データを持たない）
 - GitHubリポジトリ: omt1990/tokyo-on-foot（PUBLIC）
-- 本番URL: Vercel 接続後に決まる（tokyo-on-foot.vercel.app 想定）
-- ステータス: IN DEV（Vercel 未接続）
+- 本番URL: https://tokyo-on-foot.vercel.app（2026-10-13 接続。デプロイの成否は GitHub の deployments → statuses で見る）
+- ステータス: LIVE
 - 区分: 個人
