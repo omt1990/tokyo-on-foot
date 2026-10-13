@@ -1,0 +1,1 @@
+{ "regions": ["hnd1"], "headers": [ { "source": "/(.*)", "headers": [ { "key": "X-Content-Type-Options", "value": "nosniff" } ] } ] }
