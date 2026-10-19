@@ -30,9 +30,10 @@ a{color:inherit}
 .vert{writing-mode:vertical-rl;font-family:var(--en);font-weight:300;font-size:13px;letter-spacing:.3em;color:var(--sub);padding-bottom:6px}
 /* list */
 .item{border-top:1px solid var(--rule);padding-block:40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,36%);grid-template-rows:1fr auto auto 1fr;gap:0 48px;align-items:center}
-.item .head{grid-column:1;grid-row:2}
+.item .head{grid-column:1;grid-row:2;justify-content:center;justify-self:center;text-align:center}
 .item .pic{grid-column:2;grid-row:1/5}
-.item .txt{grid-column:1;grid-row:3;margin-top:14px}
+.item .txt{grid-column:1;grid-row:3;margin-top:14px;justify-self:center;text-align:center}
+.item .txt .body>div{display:flex;justify-content:center}
 .item:last-of-type{border-bottom:1px solid var(--rule)}
 .head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
 .num{font-family:var(--en);font-size:14px;letter-spacing:.2em;color:var(--sub)}
@@ -81,7 +82,9 @@ footer{padding-top:28px;font-size:11px;color:var(--sub);letter-spacing:.06em;lin
 footer p{margin:0}
 @media (max-width:720px){
   .item{grid-template-columns:1fr;grid-template-rows:none;gap:18px}
-  .item .head,.item .pic,.item .txt{grid-column:1;grid-row:auto;margin-top:0}
+  .item .head,.item .pic,.item .txt{grid-column:1;grid-row:auto;margin-top:0;justify-self:stretch;text-align:left}
+  .item .head{justify-content:flex-start}
+  .item .txt .body>div{justify-content:flex-start}
   .head{gap:10px}
   .name{font-size:38px}
   .hero{grid-template-columns:1fr}
