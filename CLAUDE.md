@@ -9,7 +9,7 @@
 - 世界観 v2：藍 #1F3352 ／ 和紙の白 #F7F4EE＋薄い粒 ／ 金茶 #B08A4A。書体＝Crimson Pro（英字）・Shippori Mincho B1（和文見出し）・Zen Kaku Gothic New（本文）。生成り #F1ECE2 は廃止
 - 4企画：01 ORI（抽選つき・帰る駅はユーザー指定・範囲＝都心10区／23区／都内。駅→区の対応は国土数値情報 N03-2025 東京都で点を区に落とした。多摩の駅は区なし）／02 NORI（nori-olive-eta.vercel.app へ）／03 違和看／04 危惧屋（X の #危惧屋 へ）
 - 写真の出典は `~/ai-projects/personal/knowledge/2026-10-19_tokyo-street-photo-sources/raw/candidates/photo-meta.tsv`（Unsplash・Pexels・ぱくたそ。クレジット不要の16枚だけを使用。Commons は未使用）
-- 傘の一行（キャッチ）は未決のため載せていない。企画の正本・未決事項はオーナーのメモリ（tokyo-on-foot-project）
+- 傘の一行（キャッチ）は未決。入口の見出し下は事実の一行「東京を歩いて遊ぶ、4つの企画。」を置いている。文字のルールは `~/ai-projects/audits/2026-10-22_tokyo-on-foot-copy/style-rules.md`（2026-10-23 全文見直し・コールドリーダー検収済み）。企画の正本・未決事項はオーナーのメモリ（tokyo-on-foot-project）
 - Artifact 版（claude.ai）は index をページ、他を files として同じ内容を公開。更新はこのリポジトリ → Artifact の順。ページを足すときは `scratchpad/gen.py` 相当の生成でなく、各 html を直接編集してよい
 
 ## インフラ情報

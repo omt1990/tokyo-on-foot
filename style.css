@@ -26,7 +26,7 @@ a{color:inherit}
 /* hero */
 .hero{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:24px;padding-block:24px 56px}
 .hero h1{margin:0;font-family:var(--en);font-weight:200;font-size:clamp(44px,9vw,88px);letter-spacing:.06em;line-height:.95;text-wrap:balance}
-.hero p{margin:10px 0 0;font-family:var(--ja);font-size:15px;letter-spacing:.2em;color:var(--sub)}
+.hero p{margin:14px 0 0;font-family:var(--ja);font-size:clamp(17px,2.6vw,22px);letter-spacing:.12em;color:var(--fg)}
 .vert{writing-mode:vertical-rl;font-family:var(--en);font-weight:300;font-size:13px;letter-spacing:.3em;color:var(--sub);padding-bottom:6px}
 /* list */
 .item{border-top:1px solid var(--rule);padding-block:40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,36%);grid-template-rows:1fr auto auto 1fr;gap:0 48px;align-items:center}
@@ -55,6 +55,8 @@ button[aria-pressed="true"]{background:var(--chip-on);color:var(--chip-on-fg);bo
 button:focus-visible,.btn:focus-visible,#home:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .btn.line{background:none;border-color:var(--fg)}
 .btn.line::after{content:"\2197";font-family:var(--en);font-size:14px}
+.btn.go2{background:none;border-color:var(--fg)}
+.btn.go2::after{content:"\2192";font-family:var(--en);font-size:14px}
 .go{background:var(--fg);color:var(--bg);border-color:var(--fg);font-weight:700;letter-spacing:.3em;padding:11px 24px}
 #home{font-family:var(--go);font-size:15px;letter-spacing:.06em;padding:8px 14px;border:1px solid var(--rule);border-radius:100px;background:transparent;color:var(--fg);min-width:0;width:160px}
 #home[aria-invalid="true"]{border-color:#A3362B}
@@ -100,7 +102,7 @@ footer p{margin:0}
 .shero .sub{font-size:clamp(22px,3.4vw,30px);margin-top:18px}
 .sec{border-top:1px solid var(--rule);padding-block:36px;display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:16px 48px;align-items:start}
 .sec h2{margin:0;font-family:var(--en);font-weight:300;font-size:26px;letter-spacing:.06em;line-height:1.1}
-.sec h2 small{display:block;font-family:var(--ja);font-size:13px;letter-spacing:.14em;color:var(--sub);margin-top:6px}
+.sec h2{font-family:var(--ja);font-weight:500;font-size:22px;letter-spacing:.14em}
 .flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .flow div{border-top:1px solid var(--rule);padding-top:10px;font-size:14px;letter-spacing:.06em;line-height:1.6}
 .flow b{display:block;font-family:var(--en);font-weight:400;font-size:12px;letter-spacing:.22em;color:var(--gold);margin-bottom:4px}

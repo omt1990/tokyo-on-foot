@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="ORI：帰る駅と歩く時間を選ぶと、降りる駅が出る。">
+<meta name="description" content="帰る駅と時間を選ぶと、降りる駅が出る">
 <meta name="theme-color" content="#1F3352">
-<title>ORI — Tokyo On Foot</title>
+<title>ORI | Tokyo On Foot</title>
 <link rel="canonical" href="https://tokyo-on-foot.vercel.app/ori.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tokyo On Foot">
 <meta property="og:title" content="ORI — Tokyo On Foot">
-<meta property="og:description" content="ORI：帰る駅と歩く時間を選ぶと、降りる駅が出る。">
+<meta property="og:description" content="帰る駅と時間を選ぶと、降りる駅が出る">
 <meta property="og:url" content="https://tokyo-on-foot.vercel.app/ori.html">
 <meta property="og:image" content="https://tokyo-on-foot.vercel.app/img/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ORI — Tokyo On Foot">
-<meta name="twitter:description" content="ORI：帰る駅と歩く時間を選ぶと、降りる駅が出る。">
+<meta name="twitter:description" content="帰る駅と時間を選ぶと、降りる駅が出る">
 <meta name="twitter:image" content="https://tokyo-on-foot.vercel.app/img/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,14 +29,14 @@
 <div class="wrap">
 <a class="back" href="index.html">Tokyo On Foot</a>
 <header class="shero">
-  <div><div class="head"><span class="num">01</span><h1 class="name">ORI</h1><span class="tag">ひとりで</span></div><p class="sub">降りて、歩く。</p></div>
+  <div><div class="head"><span class="num">01</span><h1 class="name">ORI</h1><span class="tag">ひとり</span></div><p class="sub">降りて、歩く。</p></div>
   <div class="pic"><img src="img/ori-1.jpg" alt=""><img src="img/ori-2.jpg" alt=""><img src="img/ori-3.jpg" alt=""><img src="img/ori-4.jpg" alt=""><div class="card"><i></i><b>ORI</b></div></div>
 </header>
-<section class="sec"><h2>How<small>あそびかた</small></h2>
-  <div class="flow"><div><b>01</b>帰る駅と、歩く時間を選ぶ</div><div><b>02</b>引く。駅が出る</div><div><b>03</b>電車でその駅へ。降りて、歩いて帰る</div></div></section>
-<section class="sec"><h2>Rules<small>きまり</small></h2>
-  <div class="kv"><div><b>時間</b>1h・1.5h・2h・3h・半日</div><div><b>範囲</b>都心＝千代田・中央・港・新宿・渋谷・文京・台東・豊島・目黒・品川。23区。都内</div><div><b>駅から駅へ</b>出発も到着もランダム。帰りは電車</div><div><b>寄り道</b>自由。それが本体</div></div></section>
-<section class="sec" id="draw-sec"><h2>Draw<small>引く</small></h2>
+<section class="sec"><h2>遊び方</h2>
+  <div class="flow"><div><b>01</b>帰る駅・範囲・時間を選ぶ</div><div><b>02</b>引く</div><div><b>03</b>出た駅で降りて、歩く</div></div></section>
+<section class="sec"><h2>選ぶ</h2>
+  <div class="kv"><div><b>帰る</b>出た駅から、帰る駅まで歩く</div><div><b>駅から駅へ</b>出発も到着も抽選。歩いたあとは電車</div><div><b>範囲</b>都心＝千代田・中央・港・新宿・渋谷・文京・台東・豊島・目黒・品川／23区／都内</div></div></section>
+<section class="sec" id="draw-sec"><h2>引く</h2>
   <div class="tool">
     <div class="row" role="group" aria-label="モード"><button id="m-home" aria-pressed="true">帰る</button><button id="m-ab" aria-pressed="false">駅から駅へ</button></div>
     <div class="row" id="homerow"><input id="home" list="stlist" placeholder="帰る駅" autocomplete="off" enterkeyhint="done"><datalist id="stlist"></datalist></div>
@@ -44,8 +44,8 @@
     <div class="row" role="group" aria-label="歩く時間" id="times"></div>
     <div><button class="go" id="draw">引く</button></div>
     <div class="plate" id="plate"><div class="bar"></div><div class="in">
-      <div class="st"><div><div class="nm" id="from">後楽園</div></div><div class="mid">徒歩<span id="hrs">1.5h</span></div><div class="r"><div class="nm" id="to">池袋</div></div></div>
-      <div class="pf"><a id="map" href="#" target="_blank" rel="noopener">地図</a><div class="acts"><a id="post" href="#" target="_blank" rel="noopener">Xに投稿</a><button class="lk" id="copy" type="button">コピー</button></div></div>
+      <div class="st"><div><div class="nm" id="from">—</div></div><div class="mid">徒歩<span id="hrs">—</span></div><div class="r"><div class="nm" id="to">池袋</div></div></div>
+      <div class="pf" id="pf" hidden><a id="map" href="#" target="_blank" rel="noopener">経路</a><div class="acts"><a id="post" href="#" target="_blank" rel="noopener">Xに投稿</a><button class="lk" id="copy" type="button">コピー</button></div></div>
     </div></div>
   </div></section>
 <footer>
@@ -70,7 +70,7 @@ function inArea(s){return area==="all"?true:area==="23"?!!s[3]:CORE.has(s[3])}
 function setArea(a){area=a;try{localStorage.setItem("ori.area",a)}catch(_){}for(const k in AREAS)document.getElementById(AREAS[k]).setAttribute("aria-pressed",k===a)}
 for(const k in AREAS)document.getElementById(AREAS[k]).onclick=()=>setArea(k);
 setArea(area);
-const T=[{l:"1h",h:1},{l:"1.5h",h:1.5},{l:"2h",h:2},{l:"3h",h:3},{l:"半日",h:5}];
+const T=[{l:"1h",h:1},{l:"1.5h",h:1.5},{l:"2h",h:2},{l:"3h",h:3},{l:"5h",h:5}];
 let mode="home",t=1;
 const R=Math.PI/180;
 function d(a,b){const y=(a[0]-b[0])*111,x=(a[1]-b[1])*111*Math.cos((a[0]+b[0])/2*R);return Math.hypot(x,y)}
@@ -90,7 +90,7 @@ function setShare(){document.getElementById("post").href="https://twitter.com/in
 document.getElementById("copy").onclick=async e=>{const b=e.currentTarget,s=shareText();
   try{await navigator.clipboard.writeText(s);b.textContent="コピー済み"}catch(_){const ta=document.createElement("textarea");ta.value=s;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");b.textContent="コピー済み"}catch(__){}ta.remove()}
   setTimeout(()=>b.textContent="コピー",1600)};
-function show(a,bName,bPos){cur=[a[0],bName,T[t].l];setShare();
+function show(a,bName,bPos){cur=[a[0],bName,T[t].l];setShare();document.getElementById("pf").hidden=false;
   document.getElementById("from").textContent=a[0];
   document.getElementById("to").textContent=bName;
   document.getElementById("hrs").textContent=T[t].l;
@@ -113,7 +113,7 @@ function draw(w){
   }
 }
 document.getElementById("draw").onclick=()=>draw();
-{const h=homeSt(),k=S.find(s=>s[0]==="後楽園");if(h&&k){cur=[k[0],h[0],T[t].l];document.getElementById("to").textContent=h[0];document.getElementById("map").href=link([k[1],k[2]],[h[1],h[2]]);last=k[0]}}setShare();
+{const h=homeSt();if(h)document.getElementById("to").textContent=h[0];}
 
 
 </script>
