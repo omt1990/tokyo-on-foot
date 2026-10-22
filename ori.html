@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="帰る駅と時間を選ぶと、降りる駅がくじで決まる">
+<meta name="description" content="帰る駅と時間を選んで、駅ガチャを引く">
 <meta name="theme-color" content="#1F3352">
 <title>ORI | Tokyo On Foot</title>
 <link rel="canonical" href="https://tokyo-on-foot.vercel.app/ori.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tokyo On Foot">
 <meta property="og:title" content="ORI — Tokyo On Foot">
-<meta property="og:description" content="帰る駅と時間を選ぶと、降りる駅がくじで決まる">
+<meta property="og:description" content="帰る駅と時間を選んで、駅ガチャを引く">
 <meta property="og:url" content="https://tokyo-on-foot.vercel.app/ori.html">
 <meta property="og:image" content="https://tokyo-on-foot.vercel.app/img/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ORI — Tokyo On Foot">
-<meta name="twitter:description" content="帰る駅と時間を選ぶと、降りる駅がくじで決まる">
+<meta name="twitter:description" content="帰る駅と時間を選んで、駅ガチャを引く">
 <meta name="twitter:image" content="https://tokyo-on-foot.vercel.app/img/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,16 +33,16 @@
   <div class="pic"><img src="img/ori-1.jpg" alt=""><img src="img/ori-2.jpg" alt=""><img src="img/ori-3.jpg" alt=""><img src="img/ori-4.jpg" alt=""><div class="card"><i></i><b>ORI</b></div></div>
 </header>
 <section class="sec"><h2>遊び方</h2>
-  <div class="flow"><div><b>01</b>帰る駅・範囲・時間を選ぶ</div><div><b>02</b>駅を引く</div><div><b>03</b>出た駅で降りて、歩く</div></div></section>
+  <div class="flow"><div><b>01</b>帰る駅・範囲・時間を選ぶ</div><div><b>02</b>駅ガチャを引く</div><div><b>03</b>出た駅で降りて、歩く</div></div></section>
 <section class="sec"><h2>選ぶ</h2>
   <div class="kv"><div><b>帰る</b>出た駅から、帰る駅まで歩く</div><div><b>駅から駅へ</b>出発も到着も抽選。歩いたあとは電車</div><div><b>範囲</b>都心＝千代田・中央・港・新宿・渋谷・文京・台東・豊島・目黒・品川／23区／都内</div></div></section>
-<section class="sec" id="draw-sec"><h2>駅を引く</h2>
+<section class="sec" id="draw-sec"><h2>駅ガチャ</h2>
   <div class="tool">
     <div class="row" role="group" aria-label="モード"><button id="m-home" aria-pressed="true">帰る</button><button id="m-ab" aria-pressed="false">駅から駅へ</button></div>
     <div class="row" id="homerow"><input id="home" list="stlist" placeholder="帰る駅" autocomplete="off" enterkeyhint="done"><datalist id="stlist"></datalist></div>
     <div class="row" role="group" aria-label="範囲"><button id="a-core" aria-pressed="true">都心</button><button id="a-23" aria-pressed="false">23区</button><button id="a-all" aria-pressed="false">都内</button></div>
     <div class="row" role="group" aria-label="歩く時間" id="times"></div>
-    <div><button class="go" id="draw">駅を引く</button></div>
+    <div><button class="go" id="draw">駅ガチャを引く</button></div>
     <div class="plate" id="plate"><div class="bar"></div><div class="in">
       <div class="st"><div><div class="nm" id="from">—</div></div><div class="mid">徒歩<span id="hrs">—</span></div><div class="r"><div class="nm" id="to">池袋</div></div></div>
       <div class="pf" id="pf" hidden><a id="map" href="#" target="_blank" rel="noopener">経路</a><div class="acts"><a id="post" href="#" target="_blank" rel="noopener">Xに投稿</a><button class="lk" id="copy" type="button">コピー</button></div></div>
