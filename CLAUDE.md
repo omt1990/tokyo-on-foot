@@ -2,8 +2,10 @@
 
 ⚠️ このリポジトリは PUBLIC。個人情報・鍵を置かない。
 
-## 現在地（2026-10-21）
+## 現在地（2026-11-02）
 
+- **2026-11-02 ORI の帰る駅**：初期値なし。端末に保存した値（localStorage `ori.home`）だけを使う。帰る駅は人ごとに違うので、ページに特定の駅を初期値や例として置かない（共有文の例も置かない）。未入力・一覧にない駅で引くと入力欄の横に「都内の駅から選ぶ」。入力の末尾の「駅」・「ケ」・空白は吸収して照合する。引く前は「経路・Xに投稿・コピー」を出さない（`.pf[hidden]`）。`07fa206`・本番と Artifact 版（v16）に反映済み
+- ORI の未対応（2026-11-02 検収で判明・前からある挙動）：①既定（都心・1.5h）で多摩の駅など67駅を帰る駅にすると、引いても何も出ずメッセージもない ②候補がなく探す幅を広げたときも、板の時間は選んだ値のまま（例：初台→吉祥寺は直線約9.9kmで「1.5h」）③時間ボタンの英字「1h」（文字のルール2）④外部リンク「経路」「Xに投稿」に ↗ がない（ルール7）
 - **2026-10-20 SEO/Search Console**：5ページに canonical・OGP（`img/og.jpg`）・Twitter カード、`robots.txt`・`sitemap.xml` を追加（`a2de21a`・本番反映済み）。Search Console（omata.yusuke1990）に URL プレフィックス `https://tokyo-on-foot.vercel.app/` を登録・所有権確認済み・sitemap 送信済み（送信直後は「取得できませんでした」表示。数日後に再確認）。検証メタは index.html の `<head>`、削除すると所有権が失効する
 - `index.html`（入口・4企画のカード）＋ 下層 `ori.html` `nori.html` `iwakan.html` `kiguya.html`（説明→最後に遷移先）＋ `style.css` ＋ `img/`（16枚・各企画4枚の正方形・計2.1MB）。ORI の抽選は `ori.html` の末尾。構成は j-cat.co.jp の事業一覧の比率（番号・英字大・和文小・正方形写真・1px罫・pillボタン）
 - 世界観 v2：藍 #1F3352 ／ 和紙の白 #F7F4EE＋薄い粒 ／ 金茶 #B08A4A。書体＝Crimson Pro（英字）・Shippori Mincho B1（和文見出し）・Zen Kaku Gothic New（本文）。生成り #F1ECE2 は廃止
@@ -11,12 +13,12 @@
 - 写真の出典は `~/ai-projects/personal/knowledge/2026-10-19_tokyo-street-photo-sources/raw/candidates/photo-meta.tsv`（Unsplash・Pexels・ぱくたそ。クレジット不要の16枚だけを使用。Commons は未使用）
 - 危惧屋の「候補」枠（12件）は 2026-10-23 追加。創業年は 2026-10-23 に取材記事・店側表記で裏取り済み（6軒一致、ピース＝1955創業/1962現在地、山城屋＝1897創業/1953酒場、朝松庵は年が割れるため「明治から続く」）。出典は `~/ai-projects/personal/knowledge/2026-10-23_kiguya-candidates-tokyo23/digest.md`
 - 傘の一行（キャッチ）は未決。入口の見出し下は事実の一行「東京を歩いて遊ぶ、4つの企画。」を置いている。文字のルールは `~/ai-projects/audits/2026-10-22_tokyo-on-foot-copy/style-rules.md`（2026-10-23 全文見直し・コールドリーダー検収済み）。企画の正本・未決事項はオーナーのメモリ（tokyo-on-foot-project）
-- Artifact 版（claude.ai）は index をページ、他を files として同じ内容を公開。更新はこのリポジトリ → Artifact の順。ページを足すときは `scratchpad/gen.py` 相当の生成でなく、各 html を直接編集してよい
+- Artifact 版（claude.ai/artifact/A1zXELsKZCop3NCtFpoLMa・非公開）は index をページ、他を files として同じ内容を公開。更新はこのリポジトリ → Artifact の順。files だけの差し替えはできないので、ページの index.html を read で取って一緒に publish する。ページを足すときは `scratchpad/gen.py` 相当の生成でなく、各 html を直接編集してよい
 
 ## インフラ情報
 - Vercelアカウント: omata.yusuke1990@gmail.com / team slug `omt1990`（push で自動デプロイ。CLI 直デプロイ禁止）
 - Supabase: 不要（データを持たない）
-- GitHubリポジトリ: omt1990/tokyo-on-foot（PUBLIC）
+- GitHubリポジトリ: omt1990/tokyo-on-foot（PUBLIC）。push は `GH_TOKEN=$(gh auth token --user omt1990) git push`、コミットの author は omata.yusuke1990@gmail.com を指定する（このマシンの git 既定は別アカウント）
 - 本番URL: https://tokyo-on-foot.vercel.app（2026-10-13 接続。デプロイの成否は GitHub の deployments → statuses で見る）
 - ステータス: LIVE
 - 区分: 個人
