@@ -39,12 +39,12 @@
 <section class="sec" id="draw-sec"><h2>駅ガチャ</h2>
   <div class="tool">
     <div class="row" role="group" aria-label="モード"><button id="m-home" aria-pressed="true">帰る</button><button id="m-ab" aria-pressed="false">駅から駅へ</button></div>
-    <div class="row" id="homerow"><input id="home" list="stlist" placeholder="帰る駅" autocomplete="off" enterkeyhint="done"><datalist id="stlist"></datalist></div>
+    <div class="row" id="homerow"><input id="home" list="stlist" placeholder="帰る駅" autocomplete="off" enterkeyhint="done" aria-describedby="homemsg"><datalist id="stlist"></datalist><span id="homemsg" aria-live="polite"></span></div>
     <div class="row" role="group" aria-label="範囲"><button id="a-core" aria-pressed="true">都心</button><button id="a-23" aria-pressed="false">23区</button><button id="a-all" aria-pressed="false">都内</button></div>
     <div class="row" role="group" aria-label="歩く時間" id="times"></div>
     <div><button class="go" id="draw">駅ガチャを引く</button></div>
     <div class="plate" id="plate"><div class="bar"></div><div class="in">
-      <div class="st"><div><div class="nm" id="from">—</div></div><div class="mid">徒歩<span id="hrs">—</span></div><div class="r"><div class="nm" id="to">池袋</div></div></div>
+      <div class="st"><div><div class="nm" id="from">—</div></div><div class="mid">徒歩<span id="hrs">—</span></div><div class="r"><div class="nm" id="to">—</div></div></div>
       <div class="pf" id="pf" hidden><a id="map" href="#" target="_blank" rel="noopener">経路</a><div class="acts"><a id="post" href="#" target="_blank" rel="noopener">Xに投稿</a><button class="lk" id="copy" type="button">コピー</button></div></div>
     </div></div>
   </div></section>
@@ -59,10 +59,12 @@ const S=[["お台場海浜公園",35.62981,139.77853,"港区"],["お花茶屋",3
 const CENTER=[35.6812,139.7671];
 const homeEl=document.getElementById("home");
 const dl=document.getElementById("stlist");S.forEach(s=>{const o=document.createElement("option");o.value=s[0];dl.appendChild(o)});
-let homeName="池袋";try{homeName=localStorage.getItem("ori.home")||homeName}catch(_){}
+let homeName="";try{homeName=localStorage.getItem("ori.home")||""}catch(_){}
 homeEl.value=homeName;
-function homeSt(){return S.find(s=>s[0]===homeEl.value.trim())||null}
-homeEl.onchange=()=>{const h=homeSt();homeEl.setAttribute("aria-invalid",h?"false":"true");if(h){homeName=h[0];try{localStorage.setItem("ori.home",homeName)}catch(_){}document.getElementById("to").textContent=homeName}};
+function homeSt(){const q=homeEl.value.replace(/\s/g,"").replace(/ケ/g,"ヶ").replace(/駅$/,"");return S.find(s=>s[0]===q)||null}
+const homeMsg=document.getElementById("homemsg");
+function mark(h){homeEl.setAttribute("aria-invalid",h?"false":"true");homeMsg.textContent=h?"":"都内の駅から選ぶ"}
+homeEl.onchange=()=>{const h=homeSt();mark(h);if(h){homeName=h[0];homeEl.value=homeName;try{localStorage.setItem("ori.home",homeName)}catch(_){}document.getElementById("to").textContent=homeName}};
 const CORE=new Set(["千代田区","中央区","港区","新宿区","渋谷区","文京区","台東区","豊島区","目黒区","品川区"]);
 let area="core";try{area=localStorage.getItem("ori.area")||area}catch(_){}
 const AREAS={core:"a-core","23":"a-23",all:"a-all"};
@@ -84,8 +86,8 @@ document.getElementById("m-home").onclick=()=>setMode("home");
 document.getElementById("m-ab").onclick=()=>setMode("ab");
 let last="";
 function link(a,b){return "https://www.google.com/maps/dir/?api=1&travelmode=walking&origin="+a[0]+","+a[1]+"&destination="+b[0]+","+b[1]}
-let cur=["後楽園","池袋","1.5h"];
-function shareText(){return "ORI｜"+cur[0]+" → "+cur[1]+"｜"+cur[2]+" #TokyoOnFoot"}
+let cur=[];
+function shareText(){return cur.length?"ORI｜"+cur[0]+" → "+cur[1]+"｜"+cur[2]+" #TokyoOnFoot":"ORI #TokyoOnFoot"}
 function setShare(){document.getElementById("post").href="https://twitter.com/intent/tweet?text="+encodeURIComponent(shareText())}
 document.getElementById("copy").onclick=async e=>{const b=e.currentTarget,s=shareText();
   try{await navigator.clipboard.writeText(s);b.textContent="コピー済み"}catch(_){const ta=document.createElement("textarea");ta.value=s;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");b.textContent="コピー済み"}catch(__){}ta.remove()}
@@ -100,7 +102,7 @@ function show(a,bName,bPos){cur=[a[0],bName,T[t].l];setShare();document.getEleme
 function draw(w){
   w=w||1;let[lo,hi]=band(T[t].h);lo/=w;hi*=w;
   if(mode==="home"){
-    const h=homeSt();if(!h){homeEl.setAttribute("aria-invalid","true");homeEl.focus();return}
+    const h=homeSt();mark(h);if(!h){homeEl.focus();return}
     const H=[h[1],h[2]];
     const c=S.filter(s=>{const k=d([s[1],s[2]],H);return k>=lo&&k<=hi&&s[0]!==last&&s[0]!==h[0]&&inArea(s)});
     if(!c.length)return w<3&&draw(w*1.3);show(pick(c),h[0],H);
